@@ -1,0 +1,573 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+header {
+    background-color: white;
+    padding: 10px 0;
+    box-shadow: 0 4px 2px -2px gray;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #c29201;
+    height: 50px;
+    padding: 0 20px;
+    position: relative;
+}
+
+.nav-menu {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-menu ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Times New Roman';
+    font-weight: lighter;
+}
+
+.auth-buttons .separator {
+    color: white; /* Set the color of the separator */
+    margin: 0 5px; /* Minimal spacing around the separator */
+    font-weight: normal; /* Optional: adjust font-weight for aesthetics */
+}
+
+
+.auth-buttons {
+    margin-left: auto;
+}
+
+.auth-buttons a {
+    color: white;
+    text-decoration: none;
+    margin-left: 5px; /* Decrease left margin for the second link */
+    margin-right: 5px; /* Optional: adjust right margin for the first link */
+    font-family: 'Times New Roman';
+    font-weight: lighter;
+}
+
+.auth-buttons a:hover, .nav-menu a:hover {
+    text-decoration: underline;
+}
+
+.logo {
+    text-align: left;
+    padding: 20px 0 0 20px;
+}
+
+.logo h1 {
+    color: #c29201;
+    font-family: 'Brush Script MT', cursive;
+    font-size: 2.5em;
+}
+
+.logo p {
+    color: #c29201;
+    font-size: 1.2em;
+    margin-top: -10px;
+}
+
+/* Availability Section */
+.availability {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px;
+    position: relative;
+}
+
+/* Combined Check-in/Guests Box */
+.combined-box {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    position: relative;
+}
+
+/* Check-in | Check-out Box */
+#checkin-checkout {
+    padding: 10px;
+    border: 2px solid #c29201;
+    border-radius: 5px;
+    width: 250px;
+    font-size: 1em;
+    text-align: center;
+    cursor: pointer;
+    color: #333;
+    background-color: white; /* Ensures Flatpickr displays correctly */
+}
+
+
+/* Guests & Rooms Button */
+#guest-btn {
+    padding: 10px;
+    border: 2px solid #c29201;
+    border-radius: 5px;
+    background-color: white;
+    width: 220px;
+    font-size: 1em;
+    cursor: pointer;
+    text-align: center;
+    color: #333;
+}
+
+/* Search Button */
+.search-btn {
+    padding: 10px 20px;
+    background-color: #c29201;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+/* Guests & Rooms Dropdown aligned under button */
+.guest-dropdown {
+    position: absolute;
+    top: calc(100% + 10px); /* Space between button and dropdown */
+    left: 50%; /* Start positioning from the center */
+    transform: translateX(-50%); /* Center the dropdown */
+    width: 250px; /* Set the width */
+    background-color: white;
+    border: 2px solid #c29201;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    padding: 15px;
+    display: none; /* Hide by default */
+}
+
+
+
+
+
+.guest-count {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.minus, .plus {
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #333;
+    border-radius: 3px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.guest-count label {
+    font-size: 1em;
+    color: #333;
+}
+
+.guest-count button {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.guest-count button:hover {
+    background-color: #c29201;
+    color: white;
+}
+
+.guest-count span {
+    font-size: 1.1em;
+    padding: 0 10px;
+}
+
+/* Done Button */
+.done-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #c29201;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    text-align: center;
+}
+
+.done-btn:hover {
+    background-color: #c29201;
+}
+
+/* Flatpickr Calendar Customization */
+.flatpickr-calendar {
+    border: 1px solid #c29201;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    z-index: 1000; /* Higher than the dropdown */
+    position: absolute;
+    top: calc(100% + 5px); /* Position it right below the check-in/check-out box */
+    left: 0;
+}
+
+.flatpickr-day.selected {
+    background-color: #c29201;
+    color: white;
+}
+
+.flatpickr-day:hover {
+    background-color: #c29201;
+    color: white;
+}
+.auth-buttons .separator {
+    color: white; /* Set the color of the separator */
+    margin: 0 3px; /* Decrease spacing around the separator */
+    font-weight: normal; /* Optional: adjust font-weight for aesthetics */
+}
+.arrow {
+    margin-left: 10px; /* Add space between text and arrow */
+    font-size: 0.8em; /* Adjust arrow size */
+    color: #c29201; /* Change color to match your theme */
+}
+
+/* Adjust button styles for better appearance */
+.guest-button {
+    display: flex;
+    align-items: center; /* Align items vertically */
+}
+
+.room-container {
+    display: flex;
+    justify-content: center; /* Center the cards */
+    gap: 1.5rem; /* Reduced gap to control space between the cards */
+    padding: 20px; /* Keep the container padding */
+}
+
+.room-card {
+    width: 350px; /* Width of the card */
+    padding: 20px; /* Padding inside the card */
+    border: 2px solid #d4b17a;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: hidden; /* Ensures content doesn't overflow */
+    box-sizing: border-box; /* Includes padding in width and height calculations */
+}
+
+
+.room-images {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.room-images img {
+    width: 100px; /* Adjust width as needed */
+    height: 100px; /* Adjust height as needed */
+    object-fit: cover; /* Ensures images are contained within their area */
+    border: 1px solid #d4b17a;
+    box-sizing: border-box; /* Ensures border is included in width and height */
+}
+
+h3 {
+    font-size: 1.6em;
+    color: #333;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #c29201;
+    margin: 15px 0;
+}
+
+.description {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.description a {
+    color: #c29201;
+    text-decoration: none;
+}
+
+.description a:hover {
+    text-decoration: underline;
+}
+
+/* Modal wrapper for centering */
+.modal {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;    /* Centers vertically */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1000; /* Ensure modal is above other elements */
+    margin: 0;
+    padding: 0;
+}
+
+/* Modal content */
+.modal-content {
+    background-color: #fff; /* White background */
+    width: 70%; /* Larger modal width */
+    max-width: 900px; /* Prevent it from being too large */
+    border-radius: 10px; /* Smooth rounded corners */
+    padding: 20px; /* Padding inside modal */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Add shadow for better visibility */
+    position: relative; /* Maintain internal positioning */
+    margin: 0 auto; /* Ensure content is centered horizontally */
+    top: 50%; /* Move the modal 50% down from the top */
+    transform: translateY(-50%); /* Adjust the modal position to exactly center it */
+}
+
+
+
+
+
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.modal-details {
+    display: flex;
+    gap: 20px;
+}
+
+.modal-images {
+    position: relative;
+    flex: 1;
+    text-align: center;
+}
+
+.modal-images img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.thumbnail-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.thumbnail {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.modal-info {
+    flex: 2;
+}
+
+.modal-info h2 {
+    font-size: 24px;
+}
+
+.modal-info p {
+    margin: 5px 0;
+}
+.modal-info ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Create 2 equal-width columns */
+    gap: 10px; /* Add spacing between items */
+    list-style: none; /* Remove default bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    font-size: 16px; /* Adjust text size */
+}
+
+.modal-info ul li {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Space between icon (if needed) and text */
+}
+
+/* Position bottom-right content */
+.bottom-right {
+    position: absolute; /* Allow absolute positioning */
+    bottom: 20px; /* Distance from the bottom edge */
+    right: 20px; /* Distance from the right edge */
+    text-align: right; /* Align text to the right */
+    background-color: rgba(255, 255, 255, 0.9); /* Optional: slight background for visibility */
+    padding: 10px; /* Add some padding around the content */
+    border-radius: 8px; /* Optional: smooth corners */
+    
+}
+
+/* Style for the price */
+.price {
+    font-size: 20px;
+    color: #c59d05;
+    font-weight: bold;
+}
+
+/* Book button */
+.book-button {
+    background-color: #c59d05;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 18px;
+}
+
+/* Chat Container Styling for Placement */
+.chat-container {
+    position: relative;
+    margin-top: 20px; /* Space from the pictures */
+    width: 45%; /* Adjust width for left alignment */
+    background-color: #f9f9f9; /* Light background */
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: left; /* Align content to the left */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling for the Chat Input and Button */
+.chat {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between input and button */
+    margin-bottom: 10px;
+}
+
+.chat input {
+    width: 65%; /* Input width reduced to fit layout */
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.chat button {
+    padding: 10px 15px;
+    font-size: 14px;
+    background-color: #c29201; /* Yellow */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.chat button:hover {
+    background-color: #c29201; /* Darker on hover */
+}
+
+/* Add-Ons Buttons Styling */
+.add-ons {
+    display: flex;
+    justify-content: flex-start; /* Align add-on buttons to the left */
+    gap: 10px;
+}
+
+.add-ons button {
+    padding: 8px 12px;
+    font-size: 14px;
+    background-color: #c29201;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-ons button:hover {
+    background-color: #c29201;
+}
+
+
+
+.prev-image, .next-image {
+    position: absolute;
+    top: 50%;
+    font-size: 24px;
+    color: #333;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.prev-image {
+    left: -30px;
+}
+
+.next-image {
+    right: -30px;
+}
+/* Modal background */
+#roomModal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fix the modal position relative to the viewport */
+    top: 50%; /* Position it vertically at the center */
+    left: 50%; /* Position it horizontally at the center */
+    transform: translate(-50%, -50%); /* Adjust for exact center */
+    z-index: 9999; /* Make sure it is above other content */
+    width: 100%; /* Optional: To ensure the background covers the full screen */
+    height: 100%; /* Optional: To ensure the background covers the full screen */
+    background-color: rgba(0, 0, 0, 0.5); /* Dim background */
+}
+#familyRoomModal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fix the modal position relative to the viewport */
+    top: 50%; /* Position it vertically at the center */
+    left: 50%; /* Position it horizontally at the center */
+    transform: translate(-50%, -50%); /* Adjust for exact center */
+    z-index: 9999; /* Make sure it is above other content */
+    width: 100%; /* Optional: To ensure the background covers the full screen */
+    height: 100%; /* Optional: To ensure the background covers the full screen */
+    background-color: rgba(0, 0, 0, 0.5); /* Dim background */
+}
+
+
+#deluxeFamilyRoomModal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dim background */
+}
+
+
